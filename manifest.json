@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Distraction Free YouTube",
   "version": "1.0",
-  "description": "Enhance YouTube by hiding video title and controls on pause and seek",
+  "description": "Enhance YouTube by hiding video header and controls on pause and seek",
   "permissions": [
     "activeTab",
     "storage"

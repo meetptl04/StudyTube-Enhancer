@@ -1,50 +1,44 @@
 let modeActive = false;
-
-// Function to hide video title and control buttons
-function hideControls() {
-  const title = document.querySelector('.title.ytd-video-primary-info-renderer');
-  const buttons = document.querySelector('#menu-container');
-  if (title) {
-    title.style.display = 'none';
-  }
-  if (buttons) {
-    buttons.style.display = 'none';
-  }
-}
-
-// Function to show video title and control buttons
-function showControls() {
-  const title = document.querySelector('.title.ytd-video-primary-info-renderer');
-  const buttons = document.querySelector('#menu-container');
-  if (title) {
-    title.style.display = 'block';
-  }
-  if (buttons) {
-    buttons.style.display = 'block';
-  }
-}
+let injectedStyle = null;
+let forwardKey = 'ArrowRight';
+let backwardKey = 'ArrowLeft';
+let forwardSeconds = 2;
+let backwardSeconds = 2;
 
 // Function to toggle mode
 function toggleMode() {
   modeActive = !modeActive;
   if (modeActive) {
-    hideControls();
+    injectStyle(".ytp-chrome-top, .ytp-chrome-bottom { display: none !important; }");
   } else {
-    showControls();
+    removeInjectedStyle();
   }
 }
 
-// Event listeners for pausing and playing the video
+// Function to inject custom CSS style
+function injectStyle(css) {
+  removeInjectedStyle(); // Remove any existing injected style
+
+  injectedStyle = document.createElement('style');
+  injectedStyle.type = 'text/css';
+  injectedStyle.textContent = css;
+  document.head.appendChild(injectedStyle);
+}
+
+// Function to remove injected style
+function removeInjectedStyle() {
+  if (injectedStyle && injectedStyle.parentNode) {
+    injectedStyle.parentNode.removeChild(injectedStyle);
+    injectedStyle = null;
+  }
+}
+
+// Event listener for forward or rewind action
 const video = document.querySelector('video');
 if (video) {
-  video.addEventListener('pause', () => {
-    if (modeActive) {
-      hideControls();
-    }
-  });
   video.addEventListener('play', () => {
     if (!modeActive) {
-      showControls();
+      removeInjectedStyle();
     }
   });
 }
@@ -54,35 +48,33 @@ function seekVideo(time) {
   if (video) {
     video.currentTime += time;
     if (modeActive) {
-      hideControls();
+      injectStyle(".ytp-chrome-top, .ytp-chrome-bottom { display: none !important; }");
     }
   }
 }
 
-// Load key and time configuration from storage
-chrome.storage.sync.get(['forwardKey', 'pauseKey', 'forwardTime'], (result) => {
-  const forwardKey = result.forwardKey || 'f'; // Default key 'f'
-  const pauseKey = result.pauseKey || 'p'; // Default key 'p'
-  const forwardTime = result.forwardTime || 10; // Default time 10 seconds
+// Load key configuration from storage
+chrome.storage.sync.get(['forwardKey', 'backwardKey', 'forwardSeconds', 'backwardSeconds'], (result) => {
+  forwardKey = result.forwardKey || 'h';
+  backwardKey = result.backwardKey || 'g';
+  forwardSeconds = result.forwardSeconds || 2;
+  backwardSeconds = result.backwardSeconds || 2;
 
+  // Event listener for key presses
   document.addEventListener('keydown', (event) => {
     if (event.ctrlKey && event.key === 'y') {
       toggleMode();
     } else if (modeActive) {
       if (event.key === forwardKey) {
-        seekVideo(forwardTime);
-      } else if (event.key === pauseKey) {
-        if (video.paused) {
-          video.play();
-          if (!modeActive) {
-            showControls();
-          }
-        } else {
-          video.pause();
-          if (modeActive) {
-            hideControls();
-          }
-        }
+        seekVideo(forwardSeconds);
+      } else if (event.key === backwardKey) {
+        seekVideo(-backwardSeconds);
+      }
+    } else if (!modeActive) {
+      if (event.key === forwardKey) {
+        seekVideo(forwardSeconds);
+      } else if (event.key === backwardKey) {
+        seekVideo(-backwardSeconds);
       }
     }
   });
