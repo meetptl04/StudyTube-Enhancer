@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Extension Options</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    label { display: block; margin-bottom: 5px; }
+    input[type="text"], input[type="number"] { width: 200px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Extension Options</h1>
+  <form id="options-form">
+    <label for="forwardKey">Forward Key:</label>
+    <input type="text" id="forwardKey" name="forwardKey">
+    
+    <label for="pauseKey">Pause Key:</label>
+    <input type="text" id="pauseKey" name="pauseKey">
+    
+    <label for="forwardTime">Forward/Rewind Time (seconds):</label>
+    <input type="number" id="forwardTime" name="forwardTime">
+    
+    <button type="submit">Save</button>
+  </form>
+  
+  <script src="options.js"></script>
+</body>
+</html>
