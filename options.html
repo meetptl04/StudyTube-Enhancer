@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -27,6 +27,38 @@
     <button id="saveBtn">Save Settings</button>
   </div>
 
+  <script src="options.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extension Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="settings-container">
+    <h2>Extension Settings</h2>
+    <table>
+      <tr>
+        <td><label for="forwardKey">Forward Key</label></td>
+        <td><input type="text" id="forwardKey" placeholder="Enter key" value="h"></td>
+        <td><label for="forwardSeconds">Forward Seconds</label></td>
+        <td><input type="number" id="forwardSeconds" min="1" max="300" value="2"></td>
+      </tr>
+      <tr>
+        <td><label for="backwardKey">Backward Key</label></td>
+        <td><input type="text" id="backwardKey" placeholder="Enter key" value="g"></td>
+        <td><label for="backwardSeconds">Backward Seconds</label></td>
+        <td><input type="number" id="backwardSeconds" min="1" max="300" value="2"></td>
+      </tr>
+    </table>
+    <button id="saveBtn">Save Settings</button>
+  </div>
   <script src="options.js"></script>
 </body>
 </html>
