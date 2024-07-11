@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
-  <title>YouTube Enhancer</title>
+  <title>StudyTube Enhancer</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
@@ -28,6 +28,41 @@
     <button id="saveBtn">Save Settings</button>
   </div>
 
+  <script src="options.js"></script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyTube Enhancer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="settings-container">
+    <h2>Extension Settings</h2>
+    <div class="form-group">
+      <label for="forwardKey">Forward Key:</label>
+      <input type="text" id="forwardKey" placeholder="Enter key" value="h">
+    </div>
+    <div class="form-group">
+      <label for="forwardSeconds">Forward Seconds:</label>
+      <input type="number" id="forwardSeconds" min="1" max="300" value="2">
+    </div>
+    <div class="form-group">
+      <label for="backwardKey">Backward Key:</label>
+      <input type="text" id="backwardKey" placeholder="Enter key" value="g">
+    </div>
+    <div class="form-group">
+      <label for="backwardSeconds">Backward Seconds:</label>
+      <input type="number" id="backwardSeconds" min="1" max="300" value="2">
+    </div>
+    <button id="saveBtn">Save Settings</button>
+  </div>
   <script src="options.js"></script>
 </body>
 </html>

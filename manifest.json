@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Distraction Free YouTube",
+  "name": "StudyTube Enhancer",
   "version": "1.0",
   "description": "Enhance YouTube by hiding video header and controls on pause and seek",
   "permissions": [
