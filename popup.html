@@ -2,15 +2,32 @@
 <html>
 <head>
   <title>YouTube Enhancer</title>
-  <style>
-    body { width: 200px; }
-    button { width: 100%; margin: 5px 0; }
-  </style>
+  <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <h1>YouTube Enhancer</h1>
-  <button id="forward">Forward 10s</button>
-  <button id="rewind">Rewind 10s</button>
-  <script src="popup.js"></script>
+  <div class="settings-container">
+    <h2>Extension Settings</h2>
+
+    <div class="key-config">
+      <label for="forwardKey">Forward Key</label>
+      <input type="text" id="forwardKey" placeholder="Enter key" value="h">
+    </div>
+    <div class="key-config">
+      <label for="forwardSeconds">Forward Seconds</label>
+      <input type="number" id="forwardSeconds" min="1" max="300" value="2">
+    </div>
+    <div class="key-config">
+      <label for="backwardKey">Backward Key</label>
+      <input type="text" id="backwardKey" placeholder="Enter key" value="g">
+    </div>
+    <div class="key-config">
+      <label for="backwardSeconds">Backward Seconds</label>
+      <input type="number" id="backwardSeconds" min="1" max="300" value="2">
+    </div>
+
+    <button id="saveBtn">Save Settings</button>
+  </div>
+
+  <script src="options.js"></script>
 </body>
 </html>
