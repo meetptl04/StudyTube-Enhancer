@@ -12,7 +12,7 @@ StudyTube Enhancer is a Chrome extension designed to improve the YouTube viewing
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/meetptl04/DistractionFree-Youtube.git
+   git clone https://github.com/meetptl04/StudyTube-Enhancer.git
 
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable 'Developer mode'
