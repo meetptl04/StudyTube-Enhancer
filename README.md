@@ -24,7 +24,7 @@ StudyTube Enhancer is a Chrome extension designed to improve the YouTube viewing
 2. Use the default keys or set your own in the extension settings:
 - `h` to forward
 - `g` to rewind
-3. Press `Ctrl + Y` to enter distraction-free mode
+3. Press `Ctrl + Y` to hide heading and control buttons.
 
 ## Contributing
 
