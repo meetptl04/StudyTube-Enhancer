@@ -1,3 +1,3 @@
 chrome.runtime.onInstalled.addListener(() => {
-  console.log("YouTube Enhancer Extension Installed");
+  console.log("Distraction Free Youtube Extension Installed");
 });
