@@ -33,18 +33,9 @@ function removeInjectedStyle() {
   }
 }
 
-// Event listener for forward or rewind action
-const video = document.querySelector('video');
-if (video) {
-  video.addEventListener('play', () => {
-    if (!modeActive) {
-      removeInjectedStyle();
-    }
-  });
-}
-
 // Function to forward or rewind the video by a specific time
 function seekVideo(time) {
+  const video = document.querySelector('video');
   if (video) {
     video.currentTime += time;
     if (modeActive) {
@@ -79,6 +70,22 @@ chrome.storage.sync.get(['forwardKey', 'backwardKey', 'forwardSeconds', 'backwar
     }
   });
 });
+
+// Initialize video event listeners
+function initializeVideoListeners() {
+  const video = document.querySelector('video');
+  if (video) {
+    video.addEventListener('play', () => {
+      if (!modeActive) {
+        removeInjectedStyle();
+      }
+    });
+  }
+}
+
+// Ensure video listeners are set up when the page loads
+window.addEventListener('load', initializeVideoListeners);
+initializeVideoListeners(); // Call it immediately in case the video is already loaded
 
 // Listen for messages from the popup
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
