@@ -1,15 +1,19 @@
-# Distraction Free YouTube
+# StudyTube Enhancer
 
-A Chrome extension to enhance your YouTube viewing experience by hiding video headers and controls when pausing or seeking. It includes customizable keyboard shortcuts.
+StudyTube Enhancer is a Chrome extension designed to improve the YouTube viewing experience for students. It hides video headers and control buttons and allows customizable forward and backward seeking, making it easier to take notes and screenshots without distractions.
 
 ## Features
 
-- Hide video headers and controls on pause and seek
-- Customizable keyboard shortcuts for forward and backward seeking
+- **Hide Headers and Controls:** Automatically hide video headers and control buttons when pausing or seeking.
+- **Customizable Seeking:** Set custom keys and durations for forward and backward seeking.
+- **Toggle Mode:** Use `Ctrl + Y` to enter a distraction-free mode.
 
 ## Installation
 
-1. Clone the repository: git clone https://github.com/meetptl04/DistractionFree-Youtube.git
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/meetptl04/DistractionFree-Youtube.git
+
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable 'Developer mode'
 4. Click 'Load unpacked' and select the cloned directory
